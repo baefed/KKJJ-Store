@@ -1,0 +1,37 @@
+{
+  "1557782793470214184": {
+    "welcomeEnabled": true,
+    "welcomeChannelId": "1557820734145826966",
+    "welcomeTitle": "{user.name} | Bem-vindo(a)!",
+    "welcomeMessage": "Seja bem-vindo(a) a **{guild}**!\nVocê é a pessoa nº **{memberCount}** a chegar.\n Dê uma olhadinha em <#1557803942510075924> e confira as novidades em <#1557813052047491162>\n📢 **Fique ligado(a)!**\nA equipe está à disposição se precisar de ajuda.",
+    "welcomeFooter": "{server}",
+    "welcomeGifUrl": "https://media.discordapp.net/attachments/1558708799693529159/1559106518786514974/welcome.gif?ex=6acdde98&is=6acc8d18&hm=b669f7306f54be05464d6ca5e2ddbcac588b4c87c603ebaf01b4fcf3a70a27d4&=&width=512&height=288",
+    "autoRoleId": "",
+    "verificationChannelId": "1557793497245950002",
+    "verifiedRoleId": "",
+    "pendingRoleId": "",
+    "futureCustomerRoleId": "",
+    "verificationMessageId": "1559401646025478175",
+    "customerRoleId": "",
+    "verificationMediaExtension": "png",
+    "ticketStaffRoleIds": [
+      "1557800679785893908"
+    ],
+    "ticketPurchaseCategoryId": "1559344282018521089",
+    "ticketSupportCategoryId": "1559344349764919316",
+    "ticketQuestionCategoryId": "1559344426529198171",
+    "storeTitle": "🛒 KKJJ Store - Loja Oficial",
+    "storeDescription": "Seja bem-vindo à **KKJJ Store**! Encontre mods gráficos, mapas e modpacks para seus jogos.",
+    "storeField1Title": "🎨 Mods gráficos",
+    "storeField1Value": "Mods visuais e de textura para transformar seus jogos.",
+    "storeField2Title": "🗺️ Maps",
+    "storeField2Value": "Mapas personalizados para explorar novas experiências.",
+    "storeField3Title": "🧩 Modpacks",
+    "storeField3Value": "Pacotes de mods selecionados e prontos para jogar.",
+    "storeField4Title": "💬 Compras e suporte",
+    "storeField4Value": "Confira os canais da loja ou abra um ticket para tirar dúvidas.",
+    "storeImageUrl": "https://media.discordapp.net/attachments/1557793497245950002/1558642952241283142/6382bd1b-a658-43df-aa8c-48cd6a18f0f5.png?ex=6ace291e&is=6accd79e&hm=acf6e4ea5cc960c6cf8f47a7599d73ff7d2e7a848a8c550a6892d18abc5dd9a8&=&format=webp&quality=lossless&width=1024&height=1024",
+    "storeFooter": "KKJJ Store • Todos os direitos reservados",
+    "dashboardNotes": "mudar temrmos 3"
+  }
+}

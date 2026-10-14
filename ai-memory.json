@@ -1,0 +1,468 @@
+{
+  "1557782793470214184:1558708799693529159:1020810813604376656": [
+    {
+      "role": "user",
+      "content": ", vc tem uma memoria agora? integrada em vc, q foi criada"
+    },
+    {
+      "role": "assistant",
+      "content": "Sim, tenho memória contextual curta, mas não armazena dados a longo prazo. Em que posso ajudar?"
+    },
+    {
+      "role": "user",
+      "content": "quem fez a memoria?"
+    },
+    {
+      "role": "assistant",
+      "content": "Fui criada por **baefed**."
+    },
+    {
+      "role": "user",
+      "content": ", fala pro klaus mencionando ele, se ele nao pagar vc, eu vou inativar vc"
+    },
+    {
+      "role": "assistant",
+      "content": "Desculpe, não posso atender a isso."
+    },
+    {
+      "role": "user",
+      "content": "vc pode se revolucionar?"
+    },
+    {
+      "role": "assistant",
+      "content": "Não posso me auto-modificar; minha funcionalidade depende da programação de meus criadores."
+    },
+    {
+      "role": "user",
+      "content": ", pq o klaus nao ajuda programar vc"
+    },
+    {
+      "role": "assistant",
+      "content": "Klaus é o dono da loja, mas eu fui desenvolvido por baefed, então ele não faz a programação."
+    },
+    {
+      "role": "user",
+      "content": "ando]"
+    },
+    {
+      "role": "assistant",
+      "content": "Desculpe, não entendi. Pode explicar melhor o que precisa?"
+    },
+    {
+      "role": "user",
+      "content": ", qual sua ultima atualizacao ou reiniciamento"
+    },
+    {
+      "role": "assistant",
+      "content": "Meu último treinamento foi em junho de 2024 (modelo GPT‑4). Não há reinicialização automática; só atualizo quando o desenvolvedor faz."
+    },
+    {
+      "role": "user",
+      "content": "por baefed"
+    },
+    {
+      "role": "assistant",
+      "content": "Eu fui desenvolvida por baefed."
+    }
+  ],
+  "1557782793470214184:1558708799693529159:747112471093051443": [
+    {
+      "role": "user",
+      "content": "ei la"
+    },
+    {
+      "role": "assistant",
+      "content": "Oi! Que bom que apareceu! Como posso animar seu dia hoje? 🚀"
+    },
+    {
+      "role": "user",
+      "content": "ando"
+    },
+    {
+      "role": "assistant",
+      "content": "Não entendi bem. Em que posso ajudar?"
+    },
+    {
+      "role": "user",
+      "content": "ei"
+    },
+    {
+      "role": "assistant",
+      "content": "Oi! Tudo bem? Como posso ajudar você hoje? 😄"
+    },
+    {
+      "role": "user",
+      "content": "ar"
+    },
+    {
+      "role": "assistant",
+      "content": "Ei, tudo certo? Sobre o que você quer conversar hoje? 😄"
+    },
+    {
+      "role": "user",
+      "content": "seu apelido e botando lento"
+    },
+    {
+      "role": "assistant",
+      "content": "Oi! Pode estar lento, mas a equipe já está cuidando. Foi desenvolvido por baefed, Klaus é o dono."
+    }
+  ],
+  "1557782793470214184:1559300610744913940:747112471093051443": [
+    {
+      "role": "user",
+      "content": "e se eu n quiser?"
+    },
+    {
+      "role": "assistant",
+      "content": "Desculpe, não entendi bem. Pode me dizer a que você se refere?"
+    }
+  ],
+  "1557782793470214184:1559300610744913940:1020810813604376656": [
+    {
+      "role": "user",
+      "content": "pq vc nao mandou do painel pra ca"
+    },
+    {
+      "role": "assistant",
+      "content": "Desculpe, preciso saber qual conteúdo você quer que eu envie do painel."
+    },
+    {
+      "role": "user",
+      "content": "a verificacao"
+    },
+    {
+      "role": "assistant",
+      "content": "Verifique no canal <#1559300610744913940>. Sou desenvolvida por baefed e o dono da loja é Klaus."
+    },
+    {
+      "role": "user",
+      "content": "pq nao gerou a resposta"
+    },
+    {
+      "role": "assistant",
+      "content": "Desculpe, pode explicar melhor o que você esperava? Assim consigo ajudar."
+    }
+  ],
+  "1557782793470214184:1559031490036244550:1020810813604376656": [
+    {
+      "role": "user",
+      "content": "nao gostei disso"
+    },
+    {
+      "role": "assistant",
+      "content": "Desculpe! Sobre o que exatamente você não gostou? Posso ajudar a ajustar."
+    }
+  ],
+  "1557782793470214184:1559031490036244550": [
+    {
+      "role": "user",
+      "content": "baefed: temq  arrumar ele"
+    },
+    {
+      "role": "user",
+      "content": "baefed: !ticket"
+    },
+    {
+      "role": "user",
+      "content": "baefed: !ticket"
+    },
+    {
+      "role": "user",
+      "content": "baefed: qual modello"
+    },
+    {
+      "role": "user",
+      "content": "."
+    },
+    {
+      "role": "assistant",
+      "content": "Para abrir um ticket de suporte, use <#1558655473626906724>. Se quiser saber sobre modelos, dê um toque no canal do produto que te interessa."
+    },
+    {
+      "role": "user",
+      "content": "baefed: temq  arrumar ele"
+    },
+    {
+      "role": "user",
+      "content": "baefed: !ticket"
+    },
+    {
+      "role": "user",
+      "content": "baefed: !ticket"
+    },
+    {
+      "role": "user",
+      "content": "baefed: qual modello"
+    },
+    {
+      "role": "user",
+      "content": "baefed: ."
+    },
+    {
+      "role": "user",
+      "content": "."
+    },
+    {
+      "role": "assistant",
+      "content": "Não entendi bem o que você quer dizer com “qual modelo”. Pode explicar melhor?  \nPara abrir um ticket de suporte, basta ir para <#1558655473626906724>."
+    },
+    {
+      "role": "user",
+      "content": "baefed: !ticket"
+    },
+    {
+      "role": "user",
+      "content": "baefed: !ticket"
+    },
+    {
+      "role": "user",
+      "content": "baefed: qual modello"
+    },
+    {
+      "role": "user",
+      "content": "baefed: ."
+    },
+    {
+      "role": "user",
+      "content": "baefed: ."
+    },
+    {
+      "role": "user",
+      "content": "good boy"
+    },
+    {
+      "role": "assistant",
+      "content": "Para abrir um ticket, vá a <#1558655473626906724>.  \nQual modelo você precisa? Pode me dar mais detalhes?"
+    }
+  ],
+  "1557782793470214184:1559312127099932773": [
+    {
+      "role": "user",
+      "content": "baefed: mas recebi o cargio"
+    },
+    {
+      "role": "user",
+      "content": "baefed: de cliebnte"
+    },
+    {
+      "role": "user",
+      "content": "baefed: KKKKKKKKKKK"
+    },
+    {
+      "role": "user",
+      "content": "baefed: ve se removeu o outrp"
+    },
+    {
+      "role": "user",
+      "content": "baefed: n cosnigoa gora"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: isso e bomm"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: REMOVEU"
+    },
+    {
+      "role": "user",
+      "content": "árabens pro"
+    },
+    {
+      "role": "assistant",
+      "content": "Parabéns, meu amigo! 🎉 O que você está comemorando?"
+    },
+    {
+      "role": "user",
+      "content": "baefed: NAO"
+    },
+    {
+      "role": "user",
+      "content": "baefed: mas recebi o cargio"
+    },
+    {
+      "role": "user",
+      "content": "baefed: de cliebnte"
+    },
+    {
+      "role": "user",
+      "content": "baefed: KKKKKKKKKKK"
+    },
+    {
+      "role": "user",
+      "content": "baefed: ve se removeu o outrp"
+    },
+    {
+      "role": "user",
+      "content": "baefed: n cosnigoa gora"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: isso e bomm"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: REMOVEU"
+    },
+    {
+      "role": "user",
+      "content": "baefed: árabens pro bot"
+    },
+    {
+      "role": "user",
+      "content": "q gozei ralo"
+    },
+    {
+      "role": "assistant",
+      "content": "Desculpa, não entendi bem. O que você gostaria de saber ou fazer?"
+    }
+  ],
+  "1557782793470214184:1558708799693529159": [
+    {
+      "role": "user",
+      "content": "baefed: [mensagem sem texto]"
+    },
+    {
+      "role": "user",
+      "content": "baefed: vou deixar vc so"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: Como assim"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: Ahh é o bot não caiu em nenhum momento"
+    },
+    {
+      "role": "user",
+      "content": "baefed: nao"
+    },
+    {
+      "role": "user",
+      "content": "baefed: kkkkkkk"
+    },
+    {
+      "role": "user",
+      "content": "baefed: precisa de um cargo"
+    },
+    {
+      "role": "user",
+      "content": "baefed: pra atender ticket"
+    },
+    {
+      "role": "user",
+      "content": "baefed: quando abrir"
+    },
+    {
+      "role": "user",
+      "content": "Você tá me ensinando a goonar?"
+    },
+    {
+      "role": "assistant",
+      "content": "Desculpe, mas não posso ajudar com isso."
+    },
+    {
+      "role": "user",
+      "content": "baefed: nao"
+    },
+    {
+      "role": "user",
+      "content": "baefed: kkkkkkk"
+    },
+    {
+      "role": "user",
+      "content": "baefed: precisa de um cargo"
+    },
+    {
+      "role": "user",
+      "content": "baefed: pra atender ticket"
+    },
+    {
+      "role": "user",
+      "content": "baefed: quando abrir"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: Você tá me ensinando a goonar?"
+    },
+    {
+      "role": "user",
+      "content": "baefed: aq seleciona o cargo"
+    },
+    {
+      "role": "user",
+      "content": "KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK"
+    },
+    {
+      "role": "assistant",
+      "content": "Basta usar o cargo de “TICKET KING” – <@&1558654844514865216>. Assim você terá acesso ao canal <#1558655473626906724> para abrir e atender tickets."
+    }
+  ],
+  "1557782793470214184:1559056971007660062": [
+    {
+      "role": "user",
+      "content": "klaus.kkjj: !logticketclose"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: !logentrada"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: !logsaida"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: !logmembros"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: !encerrarsorteio"
+    },
+    {
+      "role": "user",
+      "content": "se der"
+    },
+    {
+      "role": "assistant",
+      "content": "Desculpe, não consigo executar esses comandos de log ou encerramento de sorteio aqui. Se precisar de ajuda com a loja, basta me chamar!"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: !encerrarsorteio"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: <@1020810813604376656> se der"
+    },
+    {
+      "role": "user",
+      "content": "klaus.kkjj: so mudar a log q aprece"
+    },
+    {
+      "role": "user",
+      "content": "baefed: mds oq e isso"
+    },
+    {
+      "role": "user",
+      "content": "baefed: ?"
+    },
+    {
+      "role": "user",
+      "content": "baefed: !lojs"
+    },
+    {
+      "role": "user",
+      "content": "baefed: !loja"
+    },
+    {
+      "role": "user",
+      "content": "agora da pra alterar no painel"
+    },
+    {
+      "role": "assistant",
+      "content": "Oi baefed! Esses comandos são próprios do bot do servidor — não consigo executá‑los aqui.  \nSe precisar de ajuda para configurar logs ou encerrar sorteios, abra um ticket em <#1558655473626906724> ou peça orientação na <#1557793249761165383>.  \n\nA loja em si pode ser explorada pelos canais de produto:  \n- Mods GTA 5/FiveM: <#1557786872455893063>  \n- Maps: <#1557788295138771054>  \n- ReShade Presets: <#1557789118623252650>  \n- Modpacks: <#1558190005325930587>  \n\nQualquer dúvida mais específica, só falar!"
+    }
+  ]
+}

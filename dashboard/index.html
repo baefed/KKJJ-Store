@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10101a">
+  <title>Painel KKJJ Store</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <section id="login-screen" class="login-screen" hidden>
+    <div class="login-card">
+      <a class="brand login-brand" href="/">
+        <span class="brand-mark">K</span>
+        <span><strong>KKJJ Store</strong><small>PAINEL DO BOT</small></span>
+      </a>
+      <div class="eyebrow">ACESSO RESTRITO</div>
+      <h1>Acesse o painel</h1>
+      <p id="login-description">Informe a senha compartilhada e depois confirme sua conta Discord.</p>
+      <div id="auth-message" class="notice" role="status" hidden></div>
+      <form id="password-form" class="login-form">
+        <label class="field" for="dashboard-password">Senha compartilhada
+          <input id="dashboard-password" name="password" type="password" autocomplete="current-password" maxlength="128" required>
+        </label>
+        <button id="password-submit" class="button primary login-button" type="submit">Continuar <span aria-hidden="true">→</span></button>
+      </form>
+      <a id="login-button" class="button primary login-button" href="/auth/login" hidden>Entrar com Discord <span aria-hidden="true">→</span></a>
+      <p id="oauth-setup" class="oauth-setup" hidden></p>
+    </div>
+  </section>
+
+  <div class="shell" id="dashboard-shell" hidden>
+    <aside class="sidebar">
+      <a class="brand" href="/">
+        <span class="brand-mark">K</span>
+        <span><strong>KKJJ Store</strong><small>PAINEL DO BOT</small></span>
+      </a>
+      <div class="side-label">GERENCIAMENTO</div>
+      <nav class="navigation" aria-label="Abas do painel">
+        <button class="nav-item active" type="button" data-page="settings"><span>◈</span> Configurações</button>
+        <button class="nav-item" type="button" data-page="verificationTest"><span>✓</span> Testar verificação</button>
+        <button class="nav-item" type="button" data-page="pix"><span>₿</span> Pix e pagamentos</button>
+        <button class="nav-item" type="button" data-page="giveaways"><span>🎉</span> Sorteios</button>
+        <button class="nav-item" type="button" data-page="store"><span>🛒</span> Loja</button>
+        <button class="nav-item" type="button" data-page="membersRoles"><span>♙</span> Membros e cargos</button>
+        <button class="nav-item" type="button" data-page="logs"><span>⌁</span> Logs de erros <span class="log-count" id="log-count">0</span></button>
+        <button class="nav-item" type="button" data-page="ticketLogs"><span>▣</span> Logs de tickets</button>
+        <button class="nav-item" type="button" data-page="commands"><span>⌘</span> Comandos</button>
+        <button class="nav-item" type="button" data-page="notes"><span>▤</span> Observações</button>
+        <button class="nav-item" type="button" data-page="adjustments"><span>⚙</span> Ajustes</button>
+      </nav>
+      <div class="sidebar-note">
+        <span class="status-dot"></span>
+        <div><strong>Acesso protegido</strong><small>Somente Owner e CO</small></div>
+      </div>
+      <div class="sidebar-footer">KKJJ STORE <span>•</span> BETA</div>
+    </aside>
+
+    <main class="main" id="settings">
+      <header class="topbar">
+        <div class="crumb">PAINEL <span>/</span> CONFIGURAÇÕES</div>
+        <div class="topbar-right">
+          <div class="live"><span class="status-dot"></span> Bot conectado</div>
+          <span class="current-user" id="current-user"></span>
+          <button class="logout-button" id="logout" type="button">Sair</button>
+        </div>
+      </header>
+
+      <section class="intro">
+        <div>
+          <div class="eyebrow">CENTRAL DE CONTROLE</div>
+          <h1 id="page-title">Configurações do servidor</h1>
+          <p id="page-description">Boas-vindas, cargos automáticos e verificação de novos membros.</p>
+        </div>
+        <label class="server-picker">
+          <span>Servidor Discord</span>
+          <select id="guild"><option value="">Carregando servidores...</option></select>
+        </label>
+      </section>
+
+      <div id="notice" class="notice" role="status" hidden></div>
+
+      <section id="page-settings" class="dashboard-page">
+        <form id="settings-form">
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon purple">✦</span>
+            <div><h2>Boas-vindas</h2><p>Envie uma mensagem quando alguém entrar no servidor.</p></div>
+            <label class="switch"><input id="welcomeEnabled" type="checkbox"><span></span></label>
+          </div>
+          <div class="card-body">
+            <label class="field">
+              <span>Canal de boas-vindas <em>opcional</em></span>
+              <select id="welcomeChannelId"><option value="">Selecione um canal</option></select>
+            </label>
+            <label class="field">
+              <span>Título do embed <em>opcional</em></span>
+              <input id="welcomeTitle" type="text" maxlength="256" placeholder="{user.name} chegou!">
+            </label>
+            <label class="field">
+              <span>Mensagem dentro do popup <em>opcional</em></span>
+              <textarea id="welcomeMessage" maxlength="2000" rows="6" placeholder="Olá {user}, seja bem-vindo(a) ao {guild}!"></textarea>
+            </label>
+            <label class="field">
+              <span>Rodapé <em>opcional</em></span>
+              <input id="welcomeFooter" type="text" maxlength="2048" placeholder="{server} • Todos os direitos reservados.">
+            </label>
+            <div class="tip">Tudo nesta seção é opcional enquanto boas-vindas estiverem desativadas. Ao ativar, escolha um canal e preencha pelo menos um conteúdo (título, mensagem, rodapé ou GIF).</div>
+            <div class="tip">Título, mensagem, rodapé e GIF aparecem juntos no popup do Discord. Os canais inseridos pelas variáveis viram links clicáveis dentro do popup. Nomes de usuários aparecem como texto, não como menção.</div>
+            <label class="field">
+              <span>Variáveis disponíveis</span>
+              <small>
+                Variáveis: <code>{user}</code>, <code>{user.mention}</code> ou <code>{user.name}</code> nome exibido, <code>{user.id}</code> ID,
+                <code>{user.avatar}</code> avatar, <code>{channel}</code> menção ao canal,
+                <code>{channel.name}</code> nome do canal, <code>{guild}</code> ou <code>{server}</code> nome do servidor,
+                <code>{productsChannel}</code> produtos, <code>{termsChannel}</code> termos,
+                <code>{guild.id}</code> ID do servidor e <code>{memberCount}</code> total de membros.
+                Dentro do popup, nomes aparecem como texto e canais como links clicáveis. Também aceitamos <code>{member}</code>, <code>{member.name}</code>, <code>{member.id}</code>,
+                <code>{member.avatar}</code>, <code>{channel.id}</code>, <code>{guild.name}</code>,
+                <code>{guild.memberCount}</code> e <code>{guild.icon}</code>.
+              </small>
+            </label>
+            <label class="field">
+              <span>GIF de boas-vindas <em>opcional</em></span>
+              <input id="welcomeGifUrl" type="url" maxlength="2048" placeholder="https://.../boas-vindas.gif">
+              <small>Use um link HTTPS direto para um GIF de até 8 MB. O arquivo será anexado ao embed para aparecer no Discord.</small>
+            </label>
+          </div>
+          <div class="card-footer">
+            <p>Salve as alterações para mantê-las mesmo após sair do painel ou reiniciar o bot.</p>
+            <div class="toolbar-actions">
+              <button class="button secondary" id="save-welcome-settings" type="button">Salvar</button>
+              <button class="button primary" id="send-welcome-test" type="button">Enviar teste</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon blue">♙</span>
+            <div><h2>Cargo automático adicional</h2><p>Com verificação ativa, esse cargo é atribuído somente após a liberação.</p></div>
+          </div>
+          <div class="card-body">
+            <label class="field">
+              <span>Cargo adicional <em>opcional</em></span>
+              <select id="autoRoleId"><option value="">Não atribuir cargo automático</option></select>
+            </label>
+            <div class="tip">Sem verificação ativa, o cargo é atribuído ao entrar. Com verificação ativa, é atribuído depois da reação. O cargo precisa estar abaixo do cargo mais alto do bot.</div>
+          </div>
+        </section>
+
+        <div class="actions">
+          <span id="save-state">As alterações são salvas automaticamente.</span>
+          <button class="button primary" type="submit"><span>Salvar agora</span><span aria-hidden="true">→</span></button>
+        </div>
+        </form>
+        <footer class="page-footer">KKJJ STORE <span>•</span> CONFIGURAÇÃO LOCAL DE TESTE</footer>
+      </section>
+
+      <section id="page-verificationTest" class="dashboard-page" hidden>
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon green">✓</span>
+            <div><h2>Configurar verificação</h2><p>Escolha o canal e os cargos que serão atribuídos ao verificar.</p></div>
+          </div>
+          <div class="card-body grid">
+            <div class="tip field full">Escolha um canal e pelo menos um cargo para publicar a verificação. Os demais cargos são opcionais.</div>
+            <label class="field">
+              <span>Canal do painel de verificação <em>opcional</em></span>
+              <select id="verificationChannelId"><option value="">Selecione um canal</option></select>
+            </label>
+            <label class="field">
+              <span>Cargo Verificado <em>opcional</em></span>
+              <select id="verifiedRoleId"><option value="">Selecione o cargo</option></select>
+            </label>
+            <label class="field">
+              <span>Cargo Futuro Cliente <em>opcional</em></span>
+              <select id="futureCustomerRoleId"><option value="">Selecione o cargo</option></select>
+            </label>
+            <label class="field">
+              <span>Cargo Pendente <em>opcional</em></span>
+              <select id="pendingRoleId"><option value="">Não atribuir cargo pendente</option></select>
+            </label>
+          </div>
+          <div class="card-footer">
+            <p>As escolhas são salvas automaticamente. Ao reagir com ✅, a pessoa recebe os cargos selecionados. O cargo Cliente após pagamento fica na aba Pix e pagamentos.</p>
+            <span id="verification-save-state" class="refresh-state">Altere os campos para salvar as escolhas.</span>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon green">✓</span>
+            <div><h2>Publicar e testar</h2><p>Confira as permissões e publique o painel compacto de reação ✅.</p></div>
+          </div>
+          <div class="card-body">
+            <div class="tip">O teste verifica somente o canal e os cargos escolhidos acima. Publicar o painel cria uma verificação real: quem reagir receberá esses cargos.</div>
+            <div id="verification-test-results" class="verification-checks" aria-live="polite">
+              <p>Selecione um servidor e clique em “Verificar configuração”.</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <p>Configure manualmente no Discord para que @everyone veja apenas o canal de verificação e Verificado tenha acesso às categorias liberadas. O bot só atribui os cargos selecionados; ele não modifica permissões dos canais.</p>
+            <div class="toolbar-actions">
+              <button type="button" class="button secondary" id="check-verification">Verificar configuração</button>
+              <button type="button" class="button primary" id="publish-verification-test">Publicar painel de verificação</button>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="page-pix" class="dashboard-page" hidden>
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon blue">₿</span>
+            <div><h2>Pagamentos via Pix</h2><p>Configure a equipe de atendimento e o cargo aplicado após o pagamento.</p></div>
+          </div>
+          <div class="card-body">
+            <label class="field">
+              <span>Cargos que atendem tickets</span>
+              <select id="ticketStaffRoleIds" multiple size="8" aria-describedby="ticket-staff-roles-help"></select>
+              <small id="ticket-staff-roles-help">Membros desses cargos poderão ver e atender tickets, enviar Pix, confirmar pagamentos e encerrar atendimentos. Use Ctrl para selecionar mais de um cargo. Sem cargos selecionados, novos tickets não poderão ser abertos.</small>
+            </label>
+            <div class="card-body grid">
+              <label class="field">
+                <span>Categoria dos tickets de compra</span>
+                <select id="ticketPurchaseCategoryId"></select>
+              </label>
+              <label class="field">
+                <span>Categoria dos tickets de suporte</span>
+                <select id="ticketSupportCategoryId"></select>
+              </label>
+              <label class="field">
+                <span>Categoria dos tickets de dúvida</span>
+                <select id="ticketQuestionCategoryId"></select>
+              </label>
+              <p class="field full"><small>Escolha uma categoria do Discord para cada tipo. Se deixar “Usar categoria do painel”, os tickets serão criados na mesma categoria do painel de atendimento.</small></p>
+            </div>
+            <label class="field">
+              <span>Cargo Cliente após pagamento <em>opcional</em></span>
+              <select id="customerRoleId"><option value="">Selecione o cargo</option></select>
+              <small>Configure se quiser atribuir o cargo automaticamente após confirmação. Sem esse cargo, as demais configurações continuam funcionando; o botão só poderá concluir a confirmação automática quando ele estiver selecionado.</small>
+            </label>
+            <div class="tip">Confirme o pagamento somente depois de verificar o comprovante. O botão de confirmação no ticket só pode ser usado por membros com os cargos de atendimento selecionados.</div>
+          </div>
+          <div class="card-footer">
+            <p>O cargo precisa estar abaixo do cargo mais alto do bot e ser diferente dos cargos de verificação.</p>
+            <span id="pix-save-state" class="refresh-state">As alterações são salvas automaticamente.</span>
+          </div>
+        </section>
+        <footer class="page-footer">KKJJ STORE <span>•</span> PIX E PAGAMENTOS</footer>
+      </section>
+
+      <section id="page-giveaways" class="dashboard-page" hidden>
+        <div class="panel-toolbar">
+          <div>
+            <h2>Sorteios do servidor</h2>
+            <p>Consulte sorteios ativos e encerrados, ganhadores, responsáveis e códigos dos participantes.</p>
+          </div>
+          <div class="toolbar-actions">
+            <span class="refresh-state" id="giveaway-refresh-state">Carregue os sorteios do servidor.</span>
+            <button class="button secondary" type="button" id="refresh-giveaways">Atualizar sorteios</button>
+          </div>
+        </div>
+        <div id="giveaways-list" class="logs-list" aria-live="polite"></div>
+      </section>
+
+      <section id="page-store" class="dashboard-page" hidden>
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon purple">🛒</span>
+            <div><h2>Mensagem da loja</h2><p>Edite o conteúdo publicado por <code>!loja</code> e <code>!store</code>.</p></div>
+          </div>
+          <div class="card-body">
+            <label class="field">
+              <span>Título</span>
+              <input id="storeTitle" type="text" maxlength="256">
+            </label>
+            <label class="field">
+              <span>Descrição</span>
+              <textarea id="storeDescription" maxlength="4000" rows="3"></textarea>
+            </label>
+            <div class="card-body grid">
+              <label class="field">
+                <span>Título do campo 1</span>
+                <input id="storeField1Title" type="text" maxlength="256">
+              </label>
+              <label class="field">
+                <span>Texto do campo 1</span>
+                <textarea id="storeField1Value" maxlength="1024" rows="2"></textarea>
+              </label>
+              <label class="field">
+                <span>Título do campo 2</span>
+                <input id="storeField2Title" type="text" maxlength="256">
+              </label>
+              <label class="field">
+                <span>Texto do campo 2</span>
+                <textarea id="storeField2Value" maxlength="1024" rows="2"></textarea>
+              </label>
+              <label class="field">
+                <span>Título do campo 3</span>
+                <input id="storeField3Title" type="text" maxlength="256">
+              </label>
+              <label class="field">
+                <span>Texto do campo 3</span>
+                <textarea id="storeField3Value" maxlength="1024" rows="2"></textarea>
+              </label>
+              <label class="field">
+                <span>Título do campo 4</span>
+                <input id="storeField4Title" type="text" maxlength="256">
+              </label>
+              <label class="field">
+                <span>Texto do campo 4</span>
+                <textarea id="storeField4Value" maxlength="1024" rows="2"></textarea>
+              </label>
+            </div>
+            <label class="field">
+              <span>Imagem ou GIF do embed <em>opcional</em></span>
+              <input id="storeImageUrl" type="url" maxlength="2048" placeholder="https://.../imagem.gif">
+              <small>Informe um link HTTPS direto para a imagem ou GIF. A mídia continua no mesmo espaço grande do embed do Discord.</small>
+            </label>
+            <label class="field">
+              <span>Rodapé <em>opcional</em></span>
+              <input id="storeFooter" type="text" maxlength="2048">
+            </label>
+          </div>
+          <div class="card-footer">
+            <p>As alterações são salvas automaticamente. Use novamente <code>!loja</code> ou <code>!store</code> para publicar a versão atualizada.</p>
+            <span id="store-save-state" class="refresh-state">Carregando configuração da loja.</span>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon purple">📜</span>
+            <div><h2>Termos e condições</h2><p>Configure o conteúdo publicado pelo comando <code>!termos</code>.</p></div>
+          </div>
+          <div class="card-body">
+            <div class="card-body grid">
+              <label class="field"><span>Autor</span><input id="termsAuthor" type="text" maxlength="256"></label>
+              <label class="field"><span>Título</span><input id="termsTitle" type="text" maxlength="256"></label>
+            </div>
+            <label class="field"><span>Descrição</span><textarea id="termsDescription" maxlength="4000" rows="3"></textarea></label>
+            <div class="card-body grid">
+              <label class="field"><span>Título do termo 1</span><input id="termsField1Title" type="text" maxlength="256"></label>
+              <label class="field"><span>Texto do termo 1</span><textarea id="termsField1Value" maxlength="1024" rows="3"></textarea></label>
+              <label class="field"><span>Título do termo 2</span><input id="termsField2Title" type="text" maxlength="256"></label>
+              <label class="field"><span>Texto do termo 2</span><textarea id="termsField2Value" maxlength="1024" rows="3"></textarea></label>
+              <label class="field"><span>Título do termo 3</span><input id="termsField3Title" type="text" maxlength="256"></label>
+              <label class="field"><span>Texto do termo 3</span><textarea id="termsField3Value" maxlength="1024" rows="3"></textarea></label>
+              <label class="field"><span>Título do termo 4</span><input id="termsField4Title" type="text" maxlength="256"></label>
+              <label class="field"><span>Texto do termo 4</span><textarea id="termsField4Value" maxlength="1024" rows="3"></textarea></label>
+              <label class="field"><span>Título do termo 5</span><input id="termsField5Title" type="text" maxlength="256"></label>
+              <label class="field"><span>Texto do termo 5</span><textarea id="termsField5Value" maxlength="1024" rows="3"></textarea></label>
+              <label class="field"><span>Título do termo 6</span><input id="termsField6Title" type="text" maxlength="256"></label>
+              <label class="field"><span>Texto do termo 6</span><textarea id="termsField6Value" maxlength="1024" rows="3"></textarea></label>
+              <label class="field"><span>Título do termo 7</span><input id="termsField7Title" type="text" maxlength="256"></label>
+              <label class="field"><span>Texto do termo 7</span><textarea id="termsField7Value" maxlength="1024" rows="3"></textarea></label>
+            </div>
+            <div class="card-body grid">
+              <label class="field"><span>Título do destaque final</span><input id="termsImportantTitle" type="text" maxlength="256"></label>
+              <label class="field"><span>Texto do destaque final</span><textarea id="termsImportantValue" maxlength="1024" rows="3"></textarea></label>
+            </div>
+            <label class="field"><span>Rodapé</span><input id="termsFooter" type="text" maxlength="2048"></label>
+          </div>
+          <div class="card-footer">
+            <p>As alterações são salvas automaticamente. Use <code>!termos</code> novamente para publicar a versão atualizada.</p>
+          </div>
+        </section>
+      </section>
+
+      <section id="page-membersRoles" class="dashboard-page" hidden>
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon purple">♙</span>
+            <div><h2>Cargos do servidor</h2><p id="roles-count">Carregando cargos...</p></div>
+          </div>
+          <div class="card-body">
+            <div id="server-roles" class="server-roles" aria-live="polite"></div>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon blue">☷</span>
+            <div><h2>Membros do servidor</h2><p id="members-count">Carregue esta aba para listar os membros.</p></div>
+          </div>
+          <div class="card-body">
+            <label class="field">
+              <span>Filtrar membros já carregados</span>
+              <input id="member-search" type="text" maxlength="100" placeholder="Nome ou usuário">
+            </label>
+            <div id="server-members" class="server-members" aria-live="polite"></div>
+            <button type="button" class="button secondary" id="load-more-members">Carregar mais membros</button>
+          </div>
+        </section>
+      </section>
+
+      <section id="page-logs" class="dashboard-page" hidden>
+        <div class="panel-toolbar">
+          <div>
+            <h2>Erros recentes</h2>
+            <p>Mensagens registradas pelo bot enquanto este processo está ligado.</p>
+          </div>
+          <div class="toolbar-actions">
+            <span class="refresh-state" id="log-refresh-state">Atualizando...</span>
+            <button class="button secondary" type="button" id="refresh-logs">Atualizar agora</button>
+            <button class="button danger" type="button" id="clear-logs">Limpar logs</button>
+          </div>
+        </div>
+        <div id="logs-list" class="logs-list" aria-live="polite"></div>
+      </section>
+
+      <section id="page-ticketLogs" class="dashboard-page" hidden>
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon purple">▣</span>
+            <div><h2>Canais de logs dos tickets</h2><p>Configure destinos separados para aberturas e encerramentos dos atendimentos.</p></div>
+          </div>
+          <div class="card-body">
+            <label class="field">
+              <span>Canal de abertura</span>
+              <select id="ticket-log-open-channel"><option value="">Desativar logs de abertura</option></select>
+              <small>O bot precisa poder ver o canal, enviar mensagens e inserir links.</small>
+            </label>
+            <label class="field">
+              <span>Canal de encerramento e transcrições</span>
+              <select id="ticket-log-channel"><option value="">Desativar logs de encerramento</option></select>
+              <small>Para consultar os registros no painel, o bot também precisa ler o histórico e ter Gerenciar mensagens. Para gerar as transcrições, precisa anexar arquivos e inserir links.</small>
+            </label>
+            <label class="field">
+              <span>Canal de entrada de membros</span>
+              <select id="member-join-log-channel"><option value="">Desativar logs de entrada</option></select>
+              <small>Registra quem entrou, quando a conta foi criada e o total de membros.</small>
+            </label>
+            <label class="field">
+              <span>Canal de saída de membros</span>
+              <select id="member-leave-log-channel"><option value="">Desativar logs de saída</option></select>
+              <small>Registra quem saiu, quando entrou no servidor e o total de membros.</small>
+            </label>
+          </div>
+          <div class="card-footer">
+            <p>Use <code>!logticketopen</code> e <code>!logticketclose</code> para tickets; <code>!logentrada</code> e <code>!logsaida</code> para membros. <code>!logtickets</code> e <code>!logmembros</code> definem um canal para cada grupo.</p>
+            <button class="button primary" id="save-ticket-log-channel" type="button">Salvar canais</button>
+          </div>
+        </section>
+        <div class="panel-toolbar">
+          <div>
+            <h2>Histórico de tickets</h2>
+            <p id="ticket-log-refresh-state">Carregue o histórico completo do canal configurado. Os registros não são apagados automaticamente.</p>
+          </div>
+          <div class="toolbar-actions">
+            <button class="button secondary" type="button" id="refresh-ticket-logs">Atualizar logs</button>
+          </div>
+        </div>
+        <div id="ticket-logs-list" class="logs-list" aria-live="polite"></div>
+      </section>
+
+      <section id="page-commands" class="dashboard-page" hidden>
+        <section class="card">
+          <div class="card-heading">
+            <span class="icon purple">⌘</span>
+            <div><h2>Comandos disponíveis</h2><p>Lista dos comandos de texto reconhecidos pelo bot neste servidor.</p></div>
+          </div>
+          <div class="card-body">
+            <div class="commands-list">
+              <article class="command-item"><code>!teste</code><p>Abre um formulário para testar uma ideia de comando com a IA.</p><small>Use em um canal de texto. Requer Gerenciar mensagens para apagar o comando depois de abrir o formulário.</small></article>
+              <article class="command-item"><code>!ping</code><p>Verifica se o bot está respondendo.</p><small>Disponível em canais onde o bot pode ler e responder.</small></article>
+              <article class="command-item"><code>!esquecermemoria</code><p>Apaga a memória de conversa da IA somente no canal atual.</p><small>Disponível em canais onde o bot pode ler e responder.</small></article>
+              <article class="command-item"><code>!aviso</code><p>Publica um painel para criar um aviso com título, texto e imagem opcional.</p><small>Requer Gerenciar servidor e Gerenciar mensagens no canal.</small></article>
+              <article class="command-item"><code>!logticketopen</code><p>Define o canal atual como destino dos avisos de abertura de tickets.</p><small>Use no canal que receberá as aberturas. Requer Gerenciar servidor.</small></article>
+              <article class="command-item"><code>!logticketclose</code><p>Define o canal atual como destino dos encerramentos e transcrições.</p><small>Use no canal que receberá os encerramentos. Requer Gerenciar servidor.</small></article>
+              <article class="command-item"><code>!logtickets</code><p>Define o canal atual como destino das aberturas, encerramentos e transcrições.</p><small>Atalho para usar o mesmo canal nos dois tipos de registro. Requer Gerenciar servidor.</small></article>
+              <article class="command-item"><code>!logentrada</code><p>Define o canal atual como destino dos logs de entrada de membros.</p><small>Registra o membro, a data de criação da conta e a quantidade de membros. Requer Gerenciar servidor.</small></article>
+              <article class="command-item"><code>!logsaida</code><p>Define o canal atual como destino dos logs de saída de membros.</p><small>Registra o membro, quando entrou no servidor e a quantidade de membros. Requer Gerenciar servidor.</small></article>
+              <article class="command-item"><code>!logmembros</code><p>Define o canal atual como destino dos logs de entrada e saída de membros.</p><small>Atalho para usar o mesmo canal nos dois tipos de registro. Requer Gerenciar servidor.</small></article>
+              <article class="command-item"><code>!ticket</code><p>Publica o painel para abrir tickets de suporte, dúvidas e compras.</p><small>Requer Gerenciar servidor.</small></article>
+              <article class="command-item"><code>!pix</code><p>Abre o formulário para enviar a chave Pix no ticket atual.</p><small>Somente a equipe com cargo de atendimento configurado pode usar. O ticket deve estar aberto; o comando é apagado.</small></article>
+              <article class="command-item"><code>!confirmarpagamento</code><p>Confirma o pagamento no ticket, atribuindo o cargo Cliente e registrando a ação.</p><small>Somente a equipe com cargo de atendimento configurado pode usar em um ticket aberto.</small></article>
+              <article class="command-item"><code>!loja</code> <span>ou</span> <code>!store</code><p>Publica a apresentação da loja no canal atual.</p><small>Disponível em canais onde o bot pode enviar mensagens e embeds.</small></article>
+              <article class="command-item"><code>!termos</code><p>Publica os termos e condições de compra no canal atual.</p><small>Disponível em canais onde o bot pode enviar mensagens e embeds.</small></article>
+            </div>
+            <div class="tip">Além dos comandos, o bot responde quando é mencionado, quando alguém escreve “bot” como palavra separada ou responde diretamente a uma mensagem dele. Os botões dos tickets e pagamentos também fazem parte dos fluxos interativos.</div>
+          </div>
+        </section>
+        <footer class="page-footer">KKJJ STORE <span>•</span> COMANDOS</footer>
+      </section>
+
+      <section id="page-notes" class="dashboard-page" hidden>
+        <div class="card">
+          <div class="card-heading">
+            <span class="icon purple">▤</span>
+            <div><h2>Observações do servidor</h2><p>Anotações privadas para você organizar ajustes e tarefas.</p></div>
+          </div>
+          <div class="card-body">
+            <label class="field">
+              <span>Suas observações</span>
+              <textarea id="dashboard-notes" maxlength="5000" rows="12" placeholder="Anote aqui o que falta configurar, ideias ou lembretes..."></textarea>
+              <small id="notes-count">0 / 5000 caracteres</small>
+            </label>
+          </div>
+          <div class="card-footer">
+            <p>As observações ficam salvas localmente por servidor e não são publicadas no Discord.</p>
+            <button class="button primary" type="button" id="save-notes">Salvar observações</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-adjustments" class="dashboard-page" hidden>
+        <div class="card">
+          <div class="card-heading">
+            <span class="icon blue">⚙</span>
+            <div><h2>Ajustes do painel</h2><p>Configure a atualização automática e a quantidade de logs mantidos.</p></div>
+          </div>
+          <form id="preferences-form">
+            <div class="card-body grid">
+              <label class="field">
+                <span>Atualização dos logs</span>
+                <select id="refresh-interval">
+                  <option value="0">Manual</option>
+                  <option value="5">A cada 5 segundos</option>
+                  <option value="15">A cada 15 segundos</option>
+                  <option value="30">A cada 30 segundos</option>
+                  <option value="60">A cada 60 segundos</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Máximo de erros mantidos</span>
+                <select id="max-error-logs">
+                  <option value="50">50 entradas</option>
+                  <option value="100">100 entradas</option>
+                  <option value="250">250 entradas</option>
+                  <option value="500">500 entradas</option>
+                  <option value="1000">1000 entradas</option>
+                </select>
+              </label>
+            </div>
+            <div class="card-footer">
+              <p>Os erros ficam na memória do processo e são apagados quando o bot é reiniciado. Observações e configurações permanecem salvas.</p>
+              <button class="button primary" type="submit">Salvar ajustes</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

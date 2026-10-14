@@ -1,0 +1,26 @@
+{
+  "1559341845580877846": {
+    "guildId": "1557782793470214184",
+    "channelId": "1558708799693529159",
+    "prize": "gozada no olho",
+    "hostId": "1020810813604376656",
+    "hostTag": "baefed",
+    "responsibleId": "1020810813604376656",
+    "endsAt": 1792451266557,
+    "status": "ended",
+    "entries": [
+      {
+        "userId": "747112471093051443",
+        "code": "POOX5W"
+      },
+      {
+        "userId": "1020810813604376656",
+        "code": "ACZO4T"
+      }
+    ],
+    "winnerId": "747112471093051443",
+    "winnerNumber": null,
+    "resultAnnounced": true,
+    "winnerCode": "POOX5W"
+  }
+}
